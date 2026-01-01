@@ -1,0 +1,206 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+ul, ol, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+ /* ------------------------------------ */
+
+:root {
+     /* Spacing */
+    --s-xl: 4rem;
+    --s-lg: 3rem;
+    --s-md: 2rem;
+    --s-sm: 1rem;
+    --s-xs: .5rem;
+
+    /* Sizes */
+    --mw-lg: 80rem;
+
+    /* Radius */
+    --r-xl: 1rem;
+    --r-sm: .5rem;
+
+    /* Colors */
+    --c-text: #1F1F1F;
+    --c-light: #f3f3f3;
+}
+
+/* ELEMENTS */
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    padding: var(--s-sm);
+    gap: var(--s-sm);
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--s-sm);
+    gap: var(--s-xs);
+}
+
+.container {
+    max-width: var(--mw-lg);
+    margin: auto;
+}
+
+/* HEADER */
+
+header {
+    padding: var(--s-md);
+    align-items: center;
+    justify-content: center;
+
+    & .logo {
+        max-width: 6.25rem;
+    }
+}
+
+.section-title {
+    align-items: center;
+    padding: var(--s-sm);
+    
+    & h1 {
+        color: var(--c-text);
+        justify-self: center;
+    }
+}
+
+#gridContainer {
+    background-color: var(--c-light);
+    padding: var(--s-sm);
+    align-items: center;
+    border-radius: var(--r-xl);
+
+    display: grid;
+    gap: var(--s-sm);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+
+
+    .potter-card {
+        display: flex;
+        flex-direction: column;
+        gap: var(--s-xs);
+        border-radius: var(--r-sm);
+        overflow: hidden;
+        transition: transform .2s;
+        height: 100%;
+
+        &:hover span {
+                background: linear-gradient(45deg, rgba(0,0,0,.7), rgba(0,0,0,0));
+            }
+
+        &.Gryffindor {
+            &:hover span {
+                background: linear-gradient(45deg, rgba(255,0,0,.7), rgba(255,0,0,0));
+            }
+        }
+
+        &.Slytherin {
+            &:hover span {
+                background: linear-gradient(45deg, rgba(0,255,0,.7), rgba(0,255,0,0));
+            }
+        }
+
+        &.Hufflepuff {
+            &:hover span {
+                background: linear-gradient(45deg, rgba(255,255,0,.7), rgba(255,255,0,0));
+            }
+        }
+
+        &.Ravenclaw {
+            &:hover span {
+                background: linear-gradient(45deg, rgba(0,42,255,.7), rgba(0,42,255,0));
+            }
+        }
+
+        & .imageBlock {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+
+            div {
+                display: flex;
+                gap: 1rem;
+                justify-content: space-between;
+
+                font-size: 1.2rem;
+                position: absolute;
+                bottom: 1rem;
+                left: 1rem;
+                color: var(--c-light);
+                font-weight: 200;
+                z-index: 1;
+
+                opacity: 0;
+                transition: .3s;
+            }
+
+            span {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                transition: .3s;
+                opacity: 0;
+            }
+        }
+
+        & .character-info {
+            position: relative;
+
+            p {
+            font-size: 1.2rem;
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            color: var(--c-light);
+            font-weight: 200;
+            z-index: 1;
+
+            opacity: 0;
+            transition: .3s;
+            }
+        }
+
+        &:hover {
+            transform: scale(1.02);
+            cursor: pointer;
+
+            .character-info {
+                opacity: 1;
+            }
+
+            .imageBlock {
+                div {
+                    opacity: 1;
+                }
+
+                span {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
