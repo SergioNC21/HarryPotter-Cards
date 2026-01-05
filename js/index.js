@@ -27,7 +27,7 @@ fetch('https://hp-api.onrender.com/api/characters')
             boxCharacter.addEventListener('click', () => {
                 const infoCharacter = document.addEventListener('div')
                 infoCharacter.classList.add('character-info')
-                infoCharacter.innerHTML = `<img src="${character.image}" alt="" class"potter_image">
+                infoCharacter.innerHTML = `<img src="${character.image}" alt="" class="potter_image">
                 <p>${character.species}</p>
                 <p>${character.house}</p>
                 <p>Age ${2025-character.yearOfBirth}</p>
